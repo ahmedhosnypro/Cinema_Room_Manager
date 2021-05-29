@@ -1,10 +1,14 @@
 cinema/Profit.java
  cinema.Profit
+cinema/Room.java
+ cinema.Room
 cinema/Ticket.java
  cinema.Ticket
+cinema/Action.java
+ cinema.Action
+cinema/MenuAction.java
+ cinema.MenuAction
 cinema/Print.java
  cinema.Print
 cinema/Cinema.java
  cinema.Cinema
-cinema/Room.java
- cinema.Room

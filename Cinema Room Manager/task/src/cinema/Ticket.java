@@ -29,6 +29,5 @@ public class Ticket{
         int price = ticketPrice(row, seat, room);
         System.out.println("\nTicket price: $" + price);
         room.reserveSeat(row, seat);
-        print(room);
     }
 }
