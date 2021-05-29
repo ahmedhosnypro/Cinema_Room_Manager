@@ -80,7 +80,7 @@ files:
 - name: src/cinema/Print.java
   visible: true
   learner_created: true
-- name: src/cinema/Seats.java
+- name: src/cinema/Room.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/133/stages/709/implement#comment
@@ -88,4 +88,4 @@ status: Solved
 feedback:
   message: Congratulations!
   time: Sat, 29 May 2021 12:48:20 UTC
-record: -1
+record: 1

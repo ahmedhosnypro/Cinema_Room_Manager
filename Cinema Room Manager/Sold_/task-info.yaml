@@ -127,6 +127,65 @@ files:
         }
     }
   learner_created: false
+- name: src/cinema/Room.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seats {
+        static String[][] seats = new String[8][9];
+        static {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (i == 0 && j == 0){
+                        seats[i][j] = " ";
+                    }
+                    else if (i == 0){
+                        seats[i][j] = String.valueOf(j);
+                    }
+                    else if (j == 0){
+                        seats[i][j] = String.valueOf(i);
+                    }
+                    else seats[i][j] = "S";
+                }
+            }
+        }
+        static void printSeats() {
+            for (String[] strings: seats){
+                for (int j = 0; j < strings.length; j++){
+                    if (j == seats.length){
+                        System.out.print(strings[j]);
+                    }
+                    else {
+                        System.out.print(strings[j] + " ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+  learner_created: true
+- name: src/cinema/Print.java
+  visible: true
+  text: |-
+    package cinema;
+    import static cinema.Seats.printSeats;
+
+    public class Print {
+        static void print(){
+            System.out.println("Cinema:");
+            printSeats();
+        }
+
+
+    }
+  learner_created: true
+- name: src/cinema/Profit.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/133/stages/710/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 29 May 2021 13:04:04 UTC
+record: 2

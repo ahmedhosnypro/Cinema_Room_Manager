@@ -1,10 +1,10 @@
 package cinema;
-import static cinema.Seats.printSeats;
+import cinema.Room.*;
 
 public class Print {
-    static void print(){
+    static void print(Room room){
         System.out.println("Cinema:");
-        printSeats();
+        room.printSeats();
     }
 
 
