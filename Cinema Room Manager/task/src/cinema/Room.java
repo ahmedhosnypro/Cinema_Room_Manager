@@ -31,7 +31,7 @@ public class Room {
         }
     }
     void printSeats() {
-        for (String[] strings: this.room){
+        for (String[] strings: room){
             for (int j = 0; j < strings.length; j++){
                 if (j == room.length){
                     System.out.print(strings[j]);

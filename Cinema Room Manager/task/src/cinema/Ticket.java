@@ -26,8 +26,21 @@ public class Ticket{
         int row = scanner.nextInt();
         System.out.println("Enter a seat number in that row:");
         int seat = scanner.nextInt();
-        int price = ticketPrice(row, seat, room);
-        System.out.println("\nTicket price: $" + price);
-        room.reserveSeat(row, seat);
+        if (row > room.getRows() || seat > room.getSeats()){
+            System.out.println("\nWrong input!");
+            reserveTicket(room);
+        }
+        else {
+            if (room.getRoom()[row][seat].equals("B")){
+                System.out.println("\nThat ticket has already been purchased!");
+                reserveTicket(room);
+            }
+            else {
+                int price = ticketPrice(row, seat, room);
+                System.out.println("\nTicket price: $" + price);
+                room.reserveSeat(row, seat);
+            }
+        }
+
     }
 }
