@@ -10,7 +10,7 @@ public class CinemaTests extends StageTest<String> {
     CheckResult test1_checkExit() {
 
         TestedProgram program = new TestedProgram();
-        String output = program.start().trim();
+        String output = program.start().strip();
 
         if (!output.toLowerCase().contains("enter the number of rows")) {
             return CheckResult.wrong("At the beginning your program should ask for entering the number of rows.\n" +
@@ -21,7 +21,8 @@ public class CinemaTests extends StageTest<String> {
 
         if (!output.toLowerCase().contains("enter the number of seats in each row")) {
             return CheckResult.wrong("After entering the number of rows your program should ask for entering" +
-                " the number of seats in ean 'Enter the number of seats in each row'.");
+                " the number of seats in each row.\n" +
+                "Your output should contain 'Enter the number of seats in each row'.");
         }
 
         output = program.execute("8").toLowerCase();
@@ -134,7 +135,8 @@ public class CinemaTests extends StageTest<String> {
         output = program.execute("1");
         checkTakenSeat(output, 7, 8, 2, 4);
 
-        output = program.execute("2\n3\n5\n1");
+        program.execute("2\n3\n5");
+        output = program.execute("1");
         checkTakenSeat(output, 7, 8, 3, 5);
 
         return CheckResult.correct();
@@ -491,9 +493,11 @@ public class CinemaTests extends StageTest<String> {
 
             String errorMessage = "The ";
             if (i == 1) {
-                errorMessage += "second ";
+                errorMessage += "first ";
             } else if (i == 2) {
-                errorMessage += "third  ";
+                errorMessage += "second ";
+            } else if (i == 3) {
+                errorMessage += "third ";
             } else {
                 errorMessage += i + "th ";
             }
@@ -552,9 +556,11 @@ public class CinemaTests extends StageTest<String> {
 
             String errorMessage = "The ";
             if (i == 1) {
-                errorMessage += "second ";
+                errorMessage += "first ";
             } else if (i == 2) {
-                errorMessage += "third ";
+                errorMessage += "second  ";
+            } else if (i == 3) {
+                errorMessage += "third  ";
             } else {
                 errorMessage += i + "th ";
             }

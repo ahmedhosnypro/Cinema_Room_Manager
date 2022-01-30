@@ -5,8 +5,9 @@ import java.util.Scanner;
 import static cinema.Print.*;
 import static cinema.Statistics.showStatistics;
 import static cinema.Ticket.*;
+
 public class Action {
-    static boolean selectAction(Room room){
+    static boolean selectAction(Room room) {
         boolean isContinue = true;
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n" +
@@ -15,7 +16,7 @@ public class Action {
                 "3. Statistics\n" +
                 "0. Exitt");
         int action = scanner.nextInt();
-        switch (action){
+        switch (action) {
             case 1:
                 print(room);
                 break;

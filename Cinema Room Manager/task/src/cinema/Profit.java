@@ -12,8 +12,7 @@ public class Profit {
         int profit = 0;
         if (rows * seats <= 60) {
             profit = rows * seats * 10;
-        }
-        else {
+        } else {
             int frontHalf = rows / 2;
             int backHalf = rows - frontHalf;
             profit = frontHalf * seats * 10;

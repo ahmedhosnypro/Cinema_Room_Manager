@@ -5,10 +5,63 @@ files:
   text: |-
     package cinema;
 
+
+    import static cinema.Print.print;
+
     public class Cinema {
 
         public static void main(String[] args) {
-            // Write your code here
+            print();
+        }
+    }
+  learner_created: false
+- name: src/cinema/Print.java
+  visible: true
+  text: |-
+    package cinema;
+
+    import static cinema.Seats.printSeats;
+
+    public class Print {
+        static void print() {
+            System.out.println("Cinema:");
+            printSeats();
+        }
+    }
+  learner_created: false
+- name: src/cinema/Seats.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seats {
+        static String[][] seats = new String[8][9];
+
+        static {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (i == 0 && j == 0) {
+                        seats[i][j] = " ";
+                    } else if (i == 0) {
+                        seats[i][j] = String.valueOf(j);
+                    } else if (j == 0) {
+                        seats[i][j] = String.valueOf(i);
+                    } else seats[i][j] = "S";
+                }
+            }
+        }
+
+        static void printSeats() {
+            for (String[] strings : seats) {
+                for (int j = 0; j < strings.length; j++) {
+                    if (j == seats.length) {
+                        System.out.print(strings[j]);
+                    } else {
+                        System.out.print(strings[j] + " ");
+                    }
+                }
+                System.out.println();
+            }
         }
     }
   learner_created: false
@@ -27,7 +80,7 @@ files:
         CheckResult mainTest() {
 
             TestedProgram program = new TestedProgram();
-            String output = program.start().trim();
+            String output = program.start().strip();
 
             if (!output.toLowerCase().contains("enter the number of rows")) {
                 return CheckResult.wrong("At the beginning your program should ask for entering the number of rows.\n" +
@@ -246,8 +299,10 @@ files:
 
                 String errorMessage = "The ";
                 if (i == 1) {
-                    errorMessage += "second ";
+                    errorMessage += "first ";
                 } else if (i == 2) {
+                    errorMessage += "second ";
+                } else if (i == 3) {
                     errorMessage += "third ";
                 } else {
                     errorMessage += i + "th ";
@@ -300,7 +355,7 @@ files:
   learner_created: false
 - name: src/cinema/Profit.java
   visible: true
-  text: |
+  text: |-
     package cinema;
 
     import java.util.Scanner;
@@ -315,8 +370,7 @@ files:
             int profit = 0;
             if (rows * seats <= 60) {
                 profit = rows * seats * 10;
-            }
-            else {
+            } else {
                 int frontHalf = rows / 2;
                 int backHalf = rows - frontHalf;
                 profit = frontHalf * seats * 10;
@@ -328,71 +382,15 @@ files:
         }
     }
   learner_created: true
-- name: src/cinema/Print.java
-  visible: true
-  text: |-
-    package cinema;
-    import static cinema.Seats.printSeats;
-
-    public class Print {
-        static void print(){
-            System.out.println("Cinema:");
-            printSeats();
-        }
-
-
-    }
-  learner_created: true
 - name: src/cinema/Room.java
   visible: true
-  text: |
-    package cinema;
-
-    public class Seats {
-        static String[][] seats = new String[8][9];
-        static {
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 9; j++) {
-                    if (i == 0 && j == 0){
-                        seats[i][j] = " ";
-                    }
-                    else if (i == 0){
-                        seats[i][j] = String.valueOf(j);
-                    }
-                    else if (j == 0){
-                        seats[i][j] = String.valueOf(i);
-                    }
-                    else seats[i][j] = "S";
-                }
-            }
-        }
-        static void printSeats() {
-            for (String[] strings: seats){
-                for (int j = 0; j < strings.length; j++){
-                    if (j == seats.length){
-                        System.out.print(strings[j]);
-                    }
-                    else {
-                        System.out.print(strings[j] + " ");
-                    }
-                }
-                System.out.println();
-            }
-        }
-    }
   learner_created: true
 - name: src/cinema/Ticket.java
   visible: true
   learner_created: true
-- name: src/cinema/Action.java
-  visible: true
-  learner_created: true
-- name: src/cinema/MenuAction.java
-  visible: true
-  learner_created: true
-feedback_link: https://hyperskill.org/projects/133/stages/711/implement#comment
+feedback_link: https://hyperskill.org/learn/step/11107#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: Sat, 29 May 2021 14:25:19 UTC
+  time: Sun, 30 Jan 2022 16:42:58 UTC
 record: 3

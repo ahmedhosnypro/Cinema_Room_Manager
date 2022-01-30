@@ -6,7 +6,8 @@ public enum MenuAction {
     EXIT(0);
 
     final private int select;
-    MenuAction(int select){
+
+    MenuAction(int select) {
         this.select = select;
     }
 
